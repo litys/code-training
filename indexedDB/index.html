@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>IndexedDB - dexie</title>
+</head>
+<body>
+	IndexedDB 
+	<code id="result"></code>
+	<div class="inputs">
+		<h2>Dodaj przyjaciela</h2>
+		<label for="id">ID</label>
+		<input type="number" id="id">
+		<label for="name">Imię</label>
+		<input type="text" id="name">
+		<label for="age">Wiek</label>
+		<input type="number" id="age">
+		<button onclick="add()">Kliknij by dodać dane</button>
+	</div>
+	<div class="options">
+		<h3>Zarządzanie bazą</h3>
+		<button onclick="get()">Kliknij by pobrać dane</button>
+
+	</div>
+	<button onclick="reset(0)">Kliknij by wyczyścić dane</button>
+	<button onclick="reset(1)">Kliknij by usunąć baze</button>
+
+	<script src="https://unpkg.com/dexie/dist/dexie.js"></script>
+	<script>
+		var db = new Dexie("FriendDatabase");
+
+		db.version(1).stores({
+      friends: `
+        id,
+        name,
+        age`,
+    });
+
+		function add() {
+			const prepare_data = {
+				id: document.getElementById('id').value,
+				name: document.getElementById('name').value,
+				age: document.getElementById('age').value,
+			}
+			db.friends.add(prepare_data)
+				.catch( function (error) { 
+					alert('Obsługa błędus'); 
+					console.log(error);
+				})
+			// db.friends.bulkPut([
+			// 	{ name: "Josephine", age: 21 },
+			// ]);
+		}
+		function reset(v){
+			if(v) {
+				db.delete();
+			}
+			else {
+				db.friends.clear();
+			}
+		}
+		async function get(){
+			// const data = await db.friends.get(1);
+			// const data = await db.friends.get({name: 'Dawid'});
+			const data = await db.friends.toArray(); 
+			document.getElementById('result').innerHTML = JSON.stringify(data);
+		}
+	</script>
+
+</body>
+</html>
