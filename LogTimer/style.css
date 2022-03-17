@@ -1,0 +1,121 @@
+body {
+	margin: 0;
+	background-color: #302E2C;
+	font-family: 'PT Serif', serif;
+}
+
+/* Navbar */
+nav {
+	background-color: #1D1D1D;
+	border-bottom: 4px solid #FF8000;
+	padding: 15px 25px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: #ccc;
+}
+
+nav h1 {
+	display: inline;
+	margin: 0;
+	font-size: 32px;
+	line-height: 40px;
+}
+
+button, input[type=submit] {
+  background-color: #FF8000;
+  border-radius: 3px;
+  border-width: 0;
+  color: #333;
+	cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  margin: 0;
+  padding: 10px 12px;
+}
+
+.icon {
+	height: 25px;
+}
+
+/* Add new post */
+main {
+	max-width: 680px;
+	margin: auto;
+	padding: 15px 25px;
+	color: #ddd;
+}
+#secret {
+	display: none;
+}
+textarea {
+	width: 100%;
+	box-sizing: border-box;
+	background-color: transparent;
+	color: #ddd;
+	border: 1px solid #FF8000;
+	margin-bottom: 15px;
+	font-family: 'PT Serif', serif;
+	white-space: pre-wrap;
+}
+textarea:focus {
+	outline: none;
+}
+.form_options {
+	text-align: right;
+}
+
+/* Display posts */
+#posts {
+	color: #ccc;
+	max-width: 680px;
+	margin: auto;
+}
+h2 {
+	font-size: 26px;
+}
+article {
+	font-size: 21px;
+	line-height: 32px;
+}
+
+/* Modal */
+#modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	transition: 0.4s;
+	overflow: hidden;
+	background-color: #333;
+	color: white;
+}
+.modal_close {
+	bottom: 100vh;
+}
+.modal_open {
+	bottom: 0;
+}
+
+.modal_container {
+	max-width: 680px;
+	margin: auto;
+}
+.modal_option_close {
+	text-align: right;
+	padding: 15px 25px;
+}
+.option {
+	border: 2px solid #FF8000;
+	border-radius: 3px;
+	padding: 25px 50px;
+	margin-bottom: 75px;
+}
+.option label {
+	display: block;
+	margin-bottom: 3px;
+}
+.option input {
+	margin-bottom: 5px;
+} 
