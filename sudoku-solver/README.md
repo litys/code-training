@@ -1,7 +1,8 @@
 # sudoku-solver
+## Vue.js with PWA application
 
 Try it [here](https://litys.github.io/sudoku/)
 
-![preview](screen.jpg)
-![preview](screen1.jpg)
-![preview](screen2.jpg)
+![preview](screen.png)
+![preview](screen1.png)
+![preview](screen2.png)
